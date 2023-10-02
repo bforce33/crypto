@@ -81,6 +81,7 @@ class Substition:
 
 
 class Playfair:
+    """ Encrypts and decrypts text messages using the WWI British Playfair algorithm. """
     def __init__(self, password):
         password = password.lower()
         newKeyword = ''
@@ -96,6 +97,7 @@ class Playfair:
         self.password = password
 
     def encode_playfair_digram(self, text):
+        """ Encodes digram with playfair cipher. """
         text = text.lower()
         alpha = 'abcdefghijklmnopqrstuvwxyz'
         new_text = ''
@@ -119,6 +121,7 @@ class Playfair:
         return new_text
 
     def create_playfair_grid(self, password):
+        """ Encodes digram with playfair cipher. """
         password = password.lower()
         newKeyword = ''
         for ch in password:
