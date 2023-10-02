@@ -1,15 +1,15 @@
 import argparse
 from os import cpu_count
-cat
+
 class RailFence:
     def __init__(self):
         pass
-
+    #creates two different arrays to store every other character
     def encrypt(self, plaintext):
         rail1 = []
         rail2 = []
         encrypt_text = ""
-
+        #seperates evens and odds then joins them together
         for i, char in enumerate(plaintext):
             if i % 2 != 0:
                 rail1.append(char)
@@ -20,7 +20,7 @@ class RailFence:
 
         encrypt_text = ''.join(rail2) + ''.join(rail1)
         return encrypt_text
-
+        #this decrypts the message by splitting it in the middle then readding them together by switchng back and forth between the two arrays
     def decrypt(self, ciphertext):
         rail1_length = len(ciphertext) // 2
         rail1 = list(ciphertext[:rail1_length])
@@ -39,7 +39,7 @@ class Substition:
 
 
   
-
+    #takes a password and uses it to make a key for encryptin
    def __init__(self,password):
        password=password.lower()
        newKeyword = ''
@@ -58,7 +58,7 @@ class Substition:
  
 
 
-
+    #this takes the normal text's characters, finds their indices, they reassings the correspondings letter of the same indice from the cipher string
    def Encrypt(self, plaintext):
           plaintext=plaintext.lower()
           alphabet = "a bcdefghijklmnopqrstuvwxyz"
@@ -68,7 +68,8 @@ class Substition:
              ciphertext = ciphertext + self.password[idx]
           return ciphertext
 
-   
+   #this reverts the encrypted message back to the original text by switching each character in the cipher text with the character of the same corresponding character 
+    #from the plain text
    def Decrypt(self, ciphertext):
      ciphertext=ciphertext.lower()
      alphabet = "a bcdefghijklmnopqrstuvwxyz"
