@@ -121,7 +121,7 @@ class Playfair:
         return new_text
 
     def create_playfair_grid(self, password):
-        """ Encodes digram with playfair cipher. """
+        """ Establishes grid for playfair cipher. """
         password = password.lower()
         newKeyword = ''
         for ch in password:
@@ -140,6 +140,7 @@ class Playfair:
         return str_
 
     def find_coordinates(self, grid, char):
+        """ Locates coordinates for characters. """
         for i in range(5):
             for j in range(5):
                 if grid[i * 5 + j] == char:
@@ -147,6 +148,7 @@ class Playfair:
         raise ValueError(f"Character '{char}' not found in the grid.")
 
     def encrypt(self, plaintext):
+        """ Encrypts a message with the Playfair cipher. """
         ciphertext = ''
         plaintext = plaintext.upper()
         plaintext = plaintext.replace('Q', 'X')  # Replace 'Q' with 'X' in the plaintext
@@ -173,6 +175,7 @@ class Playfair:
         return ciphertext
 
     def decrypt(self, ciphertext):
+        """ Decrypts a message with the Playfair cipher. """
         plaintext = ''
         ciphertext = ciphertext.upper()
         grid = self.create_playfair_grid(self.password)
