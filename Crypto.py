@@ -1,6 +1,6 @@
 import argparse
 from os import cpu_count
-
+cat
 class RailFence:
     def __init__(self):
         pass
